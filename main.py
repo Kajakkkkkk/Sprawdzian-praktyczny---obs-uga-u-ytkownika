@@ -72,7 +72,7 @@ def create_user() -> Response:
     user_data = request.json
     user_id = UserService.create_user(user_data)
     if user_id:
-        return Response(status=201)
+        return Response(status=200)
     else:
         return Response(status=400)
 
@@ -89,7 +89,7 @@ def update_user(user_id: int) -> Response:
 @app.delete("/users/<int:user_id>")
 def delete_user(user_id: int) -> Response:
     if UserService.delete_user(user_id):
-        return Response(status=204)
+        return Response(status=200)
     else:
         return Response(status=404)
 

@@ -11,7 +11,7 @@ def get_users() -> Response:
 
 @app.get("/users/<int:user_id>")
 def get_user(user_id: int) -> Response:
-    user = UserService.get_user_by_id(user_id)
+    user = user_service.get_user_by_id(user_id)
     if user:
         return jsonify(user)
     else:
@@ -21,7 +21,7 @@ def get_user(user_id: int) -> Response:
 @app.post("/users")
 def create_user() -> Response:
     user_data = request.json
-    user_id = UserService.create_user(user_data)
+    user_id = user_service.create_user(user_data)
     if user_id:
         return Response(status=200)
     else:
@@ -31,7 +31,7 @@ def create_user() -> Response:
 @app.patch("/users/<int:user_id>")
 def update_user(user_id: int) -> Response:
     user_data = request.json
-    if UserService.update_user(user_id, user_data):
+    if user_service.update_user(user_id, user_data):
         return Response(status=200)
     else:
         return Response(status=404)
@@ -39,7 +39,7 @@ def update_user(user_id: int) -> Response:
 
 @app.delete("/users/<int:user_id>")
 def delete_user(user_id: int) -> Response:
-    if UserService.delete_user(user_id):
+    if user_service.delete_user(user_id):
         return Response(status=200)
     else:
         return Response(status=404)

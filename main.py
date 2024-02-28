@@ -2,7 +2,7 @@ from flask import Flask, Response, jsonify, request
 from user_service import UserService, users
 
 app = Flask(__name__)
-
+user_service = UserService()
 
 @app.get("/users")
 def get_users() -> Response:

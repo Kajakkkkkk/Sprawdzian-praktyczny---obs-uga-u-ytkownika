@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "sprawdzian-praktyczny-obs-uga-u-ytkownika"
+version = "0.1.0"
+description = ""
+authors = ["Kajakkkkkk <134702697+Kajakkkkkk@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^3.0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

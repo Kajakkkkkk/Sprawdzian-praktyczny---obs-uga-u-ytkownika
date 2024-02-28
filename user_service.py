@@ -1,8 +1,16 @@
 users = []
 user_id_counter = 1
 
+class UserRepository:
+    def __init__(self, users=None):
+        self._users = [] if users is None else users
+
+
 
 class UserService:
+    def __init__(self, repo: UserRepository) -> None:
+        self._repository = repo
+        
     @staticmethod
     def get_user_by_id(user_id):
         for user in users:
